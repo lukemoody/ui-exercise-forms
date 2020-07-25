@@ -12,14 +12,21 @@ const processForm = (e) => {
 
   const formData = new FormData(form);
 
-  formData.append("action", "processForm");
+  // View data submitted by the form
+  for (var value of formData.values()) {
+    console.log(value);
+  }
+
+  // formData.append("action", "processForm");
 
   axios({
     method: "POST",
-    url: "/customer/account/resetPassword",
+    // url: "/customer/account/resetPassword",
+    url: "https://jsonplaceholder.typicode.com/posts", // using to test POST request actually sends
     data: formData,
   }).then(
     function (res) {
+      console.log(res.status);
       console.log(res.data);
     },
     (error) => {
