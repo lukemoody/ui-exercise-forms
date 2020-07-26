@@ -17,6 +17,7 @@
     "@parcel/transformer-postcss": "^2.0.0-alpha.3",
     "axios": "^0.19.2",
     "concurrently": "^5.2.0",
+    "formbouncerjs": "^1.4.6",
     "husky": "^4.2.5",
     "json-server": "^0.16.1",
     "lint-staged": "^10.2.11",
