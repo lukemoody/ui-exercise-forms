@@ -3,22 +3,26 @@
     {
       "id": 1,
       "email": "joe.bloggs@space48.com",
-      "name": "Joe Bloggs"
+      "name": "Joe Bloggs",
+      "hint": "First home address"
     },
     {
       "id": 2,
       "email": "john.doe@space48.com",
-      "name": "John Doe"
+      "name": "John Doe",
+      "hint": "Blue bird"
     },
     {
       "id": 3,
       "email": "erika.mustermann@space48.com",
-      "name": "Erika Mustermann"
+      "name": "Erika Mustermann",
+      "hint": ""
     },
     {
       "id": 4,
       "email": "koosvandermerwe@space48.com",
-      "name": "Koos van der Merwe"
+      "name": "Koos van der Merwe",
+      "hint": ""
     },
     {
       "id": 5

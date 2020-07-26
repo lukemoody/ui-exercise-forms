@@ -8,21 +8,12 @@ const processForm = (e) => {
   e.preventDefault();
 
   const form = e.target;
+  // console.log("Submited");
 
-  console.log("Submited");
-
-  // const formData = new FormData(form);
-
-  // const email = document.querySelector('#email-address').value;
   const email = (<HTMLInputElement>document.getElementById("email-address"))
     .value; // TypeScript version
 
-  // View data submitted by the form
-  // for (var value of formData.values()) {
-  //   console.log(value);
-  // }
-
-  axios({
+  return axios({
     method: "POST",
     url: "http://localhost:3005/customer/account/resetPassword",
     // url: "https://jsonplaceholder.typicode.com/posts", // using to test POST request actually sends
@@ -41,10 +32,27 @@ const processForm = (e) => {
         let msg = <HTMLElement>document.querySelector("[data-msg]");
         // const msg = document.querySelector('[data-msg]');
         msg.innerHTML = `
-          <p><strong>Success, we have emailed your password reset link</strong></p>
-          <p>Nunc vel elit leo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
-        `;
+            <p><strong>Success, we have emailed your password reset link</strong></p>
+            <p>Nunc vel elit leo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+          `;
         msg.querySelector("strong").style.color = "#3e71a8";
+
+        // Get users hint
+        axios
+          .get("http://localhost:3005/users")
+          .then(function (res) {
+            let resData = res.data;
+            console.log(resData);
+
+            // TODO: need to get the ID of the user based on email to get the correct hint value to display
+
+            // resData.forEach(e => {
+            //   console.log(e.id, e.name, e.email, e.hint);
+            // })
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       } else {
         console.log("Email doesnt exist");
       }

@@ -8,11 +8,12 @@ const port = 3005;
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
 
-server.get("*", (_, res) => {
-  res.set("Allow", "POST");
+// server.get("*", (_, res) => {
+//   res.set("Allow", "POST");
+//   res.set("Allow", "GET"); // get requests  are returning 405?
 
-  res.send(405, "Method Not Allowed");
-});
+//   res.send(405, "Method Not Allowed");
+// });
 
 server.post("/customer/account/resetPassword", resetController);
 
